@@ -1,0 +1,40 @@
+* My Hammerspoon configuration
+  :PROPERTIES:
+  :CUSTOM_ID: hammerspoon-configuration
+  :END:
+
+[[http://www.hammerspoon.org/][Hammerspoon]] makes it easy to automate on your Mac.
+
+.hammerspoon and Github make look after a repeatable configuration.
+
+Literate Config documents this for my future self and others. Spacemacs took away my need for Literate Config years ago its interesting to havea need for it again.
+
+My return to a Literate Config approach was inspired by blog posts by zzamboni.
+
+** What it demonstrates
+   :PROPERTIES:
+   :CUSTOM_ID: what-it-demonstrates
+   :END:
+
+1. A simple welcome and help alert detailing the most important keybindings
+   
+2. Shortcut keys for Finder, iTerm, Emacs and a fun one to cmatrix
+
+3. A simple grid based window management capability to move and size app windows
+
+** How to use it
+   :PROPERTIES:
+   :CUSTOM_ID: how-to-use-it
+   :END:
+
+1. Install [[http://www.hammerspoon.org/][Hammerspoon]] (minimum version required: 0.9.81 at the time of writing)
+
+2. Clone this repository into your =~/.hammerspoon= directory:
+   #+BEGIN_EXAMPLE
+       git clone https://github.com/rossputin/dot-hammerspoon.git ~/.hammerspoon
+   #+END_EXAMPLE
+
+3. Review [[file:init.lua][init.lua]] and change according to taste. Note that this file is generated from [[file:init.org][init.org]], where you can read also a full description of the code.
+
+4. Run Hammerspoon.
+
