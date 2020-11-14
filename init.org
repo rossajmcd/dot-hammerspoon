@@ -32,6 +32,15 @@ end)
 ** Application opening hotkeys
 
 #+begin_src lua
+function open(name)
+  return function()
+    hs.application.launchOrFocus(name)
+    if name == 'Finder' then
+      hs.appfinder.appFromName(name):activate()
+    end
+  end
+end
+
 hs.hotkey.bind(hyper, "F", open("Finder"))
 hs.hotkey.bind(hyper, "T", open("iTerm"))
 hs.hotkey.bind(hyper, "E", open("Emacs"))

@@ -10,6 +10,15 @@ hs.hotkey.bind(hyper, "H", function()
     hs.alert.show("Hammerspoon config! Alt+F = Finder, Alt+E = Emacs, Alt+T = iTerm")
 end)
 
+function open(name)
+  return function()
+    hs.application.launchOrFocus(name)
+    if name == 'Finder' then
+      hs.appfinder.appFromName(name):activate()
+    end
+  end
+end
+
 hs.hotkey.bind(hyper, "F", open("Finder"))
 hs.hotkey.bind(hyper, "T", open("iTerm"))
 hs.hotkey.bind(hyper, "E", open("Emacs"))
