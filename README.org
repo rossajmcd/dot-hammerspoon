@@ -5,7 +5,7 @@
 
 [[http://www.hammerspoon.org/][Hammerspoon]] makes it easy to automate on your Mac.
 
-.hammerspoon and Github make look after a repeatable configuration.
+.hammerspoon and Github help make configuration repeatable.
 
 Literate Config documents this for my future self and others. Spacemacs took away my need for Literate Config years ago its interesting to havea need for it again.
 
