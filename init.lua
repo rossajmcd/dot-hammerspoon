@@ -9,3 +9,45 @@ cmd_ctrl    = {"cmd","ctrl"}
 hs.hotkey.bind(hyper, "H", function()
     hs.alert.show("Hammerspoon config! Alt+F = Finder, Alt+E = Emacs, Alt+T = iTerm")
 end)
+
+hs.hotkey.bind(hyper, "F", open("Finder"))
+hs.hotkey.bind(hyper, "T", open("iTerm"))
+hs.hotkey.bind(hyper, "E", open("Emacs"))
+hs.hotkey.bind(hyper, "M", function() hs.execute("screen") end)
+
+hs.grid.setGrid('2x2')
+hs.grid.setMargins('0x0')
+
+function moveWindow(x, y, w, h)
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+
+	f.x = max.x + (max.w*x)
+	f.y = max.y + (max.h*y)
+	f.w = max.w*w
+	f.h = max.h*h
+	win:setFrame(f)
+end
+
+--
+-- bind hotkeys to grid
+
+-- thirds (approx)
+hs.hotkey.bind(cmd_ctrl,"q", function() moveWindow(0.0,0.0,0.3,1.0) end)
+hs.hotkey.bind(cmd_ctrl,"w", function() moveWindow(0.4,0.0,0.3,1.0) end)
+hs.hotkey.bind(cmd_ctrl,"e", function() moveWindow(0.7,0.0,0.3,1.0) end)
+
+-- halves and fulls
+hs.hotkey.bind(cmd_ctrl,"y", function() moveWindow(0.0,0.0,0.5,0.5) end)
+hs.hotkey.bind(cmd_ctrl,"u", function() moveWindow(0.0,0.0,1.0,0.5) end)
+hs.hotkey.bind(cmd_ctrl,"i", function() moveWindow(0.5,0.0,0.5,0.5) end)
+hs.hotkey.bind(cmd_ctrl,"h", function() moveWindow(0.0,0.0,0.5,1.0) end)
+hs.hotkey.bind(cmd_ctrl,"j", function() moveWindow(0.0,0.0,1.0,1.0) end)
+hs.hotkey.bind(cmd_ctrl,"k", function() moveWindow(0.5,0.0,0.5,1.0) end)
+hs.hotkey.bind(cmd_ctrl,"n", function() moveWindow(0.0,0.5,0.5,0.5) end)
+hs.hotkey.bind(cmd_ctrl,"m", function() moveWindow(0.0,0.5,1.0,0.5) end)
+hs.hotkey.bind(cmd_ctrl,",", function() moveWindow(0.5,0.5,0.5,0.5) end)
+
+hs.alert.show("Hammerspoon config loaded")
